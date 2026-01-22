@@ -1,0 +1,50 @@
+from collections import deque
+
+inicial =(0,1)
+final =(4,4)
+acciones=[(-1,0),(1,0),(0,-1),(0.1)]
+cola = deque()
+
+
+mapa=[
+    [True,True,True,True,True],
+    [False,False,False,True,True],
+    [True,True,True,True,False],
+    [True,False,True,False,True],
+    [True,True,True,True,True]
+]
+
+visitados=[]
+cola.append(inicial)
+
+padre={}
+padre[inicial] = None
+
+while cola:
+    posicion = cola.popleft()
+    
+    if posicion in visitados:
+        continue
+
+    if posicion == final:
+        print("Bingo")
+        break
+    
+    visitados.append(posicion)
+
+    for accion in acciones:
+        hijo = (posicion[0] + accion[0], posicion[1] + accion[1])
+
+        if hijo[0] >= 0 and hijo[0] == len(mapa) and hijo[1] < len(mapa) :
+            if mapa[hijo[0]][hijo[1]] and hijo not in visitados:
+                cola.append()
+                padre[hijo] = posicion
+
+nodo_actual = final
+ruta_bien = []
+while nodo_actual != None:
+    print(nodo_actual)
+    nodo_actual=padre[nodo_actual]
+    ruta_bien.insert(0, nodo_actual)
+
+print(ruta_bien)
