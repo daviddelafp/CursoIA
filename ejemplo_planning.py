@@ -2,7 +2,8 @@ from unified_planning.io import PDDLReader
 from unified_planning.shortcuts import OneshotPlanner
 
 reader = PDDLReader()
-problem = reader.parse_problem("domain_bloques.pddl", "problem_bloques.pddl")
+problem = reader.parse_problem("domain_bloques.pddl", "problemaNombre.pddl") #pronlema_bloques.pddl
+
 
 '''
 Esto de abajo es "lo mismo" que hacer: 
@@ -40,3 +41,11 @@ OneshotPlanner(
 '''
 
 print(result.plan)
+
+'''
+Secuential plan: 
+pickup(b)  ; recoger el bloque b
+stack(b, c) ; apilar el bloque b sobre el bloque c
+pickup(a) ; recoger el bloque a
+stack(a, b) ; apilar el bloque a sobre el bloque b
+'''
