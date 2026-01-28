@@ -1,6 +1,6 @@
 import sys
 
-FIRMA_CORRECTA = [89441954, 97970796]
+FIRMA_CORRECTA = [89441954, 97970796] #aaabbccf
 def codificar_respuesta(respuesta):
     ascii_vals = [ord(c) for c in respuesta]
     chunks = [ascii_vals[i:i+4] for i in range(0, len(ascii_vals), 4)]
